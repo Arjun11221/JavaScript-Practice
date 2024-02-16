@@ -1,16 +1,13 @@
 function a() {
+  const x = 10;
   function b() {
     function c() {
-        // var x = 100;
-        console.log(x);
+      console.log(x);
     }
-    
-    
     c();
   }
   b();
 }
-var x = 10;
-      
-
 a();
+
+
