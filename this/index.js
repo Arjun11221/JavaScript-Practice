@@ -1,50 +1,75 @@
-// const person = {
-//     name : "Arjun",
-//     lastName : "kumar",
-//     id : 4454,
-//     getThis : function(){
-//         return this.name;
-//     }
-// }
+"use strict";
 
-// console.log(person.getThis());
+// this keyword in global scope
+console.log(this);
 
-// function myFun() {
-//   console.log(this);
-// }
-// myFun();
+// this keyword in function scope
+function x() {
+  console.log(this);
+}
+x();
+window.x();
 
-// const show = () => this;
-// console.log(show());
+// this keyword inside an object
 
-// const person = {
-//     name : "Arjun",
-//     lastName : "kumar",
-//     id : 4454,
-//     sayName : () => this.name
-// }
+const obj1 = {
+  name: "Arjun",
+  age: 22,
+  a: function () {
+    console.log(this.name);
+  },
+};
+obj1.a();
 
-// console.log(person.sayName());
+const obj2 = {
+  name: "Karan",
+};
 
-// "use strict";
+obj1.a.call(obj2);
 
-// function show(){
-//     console.log(this);
-// }
-// show();
+// this keyword in an arrow function
 
-// const person1 = {
-//     name: 'Pedro',
-//     surname: 'Sanchez',
-//     sayName: function(city) {
-//         return this.name + " " + this.surname + " " + city;
-//     }
-// }
+const obj3 = {
+  a: 10,
+  y: function(){
+    const fn = () => {
+      console.log(this.a);
+    };
+    fn();
+  },
+};
 
-// const person2 = {
-//     name: 'Arjun',
-//     surname: 'Kumar'
-// }
+obj3.y();
 
-// const newFun = person1.sayName.bind(person2,["Delhi","India"])
-// console.log(newFun());
+// this keyword inside the dom
+
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click",function(){
+    console.log(this);
+})
+
+
+// call, apply and bind method
+
+const student1 = {
+    name : "Arjun",
+    lastName : "Kumar",
+    
+}
+const getFullName = function(area,stat){
+    console.log(this.name + " " + this.lastName + " " + area + " ," + stat);
+}
+getFullName.call(student1 ,"Gzb","up");
+
+const student2 = {
+    name : "Sachin",
+    lastName : "Tendulkar",
+}
+
+getFullName.call(student2 , "Mumbai" , "Maha");
+getFullName.apply(student2 , ["Mumbai" , "Maha"]);
+const myName = getFullName.bind(student2 , ["Mumbai" , "Maha"]);
+console.log(myName);
+
+myName();
