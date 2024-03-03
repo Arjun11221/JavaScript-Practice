@@ -6,9 +6,31 @@
 // x();
 // // console.log(a);
 
-foo();
-var foo = 20;
-function foo(){
-    console.log("Calling Foo");
+// foo();
+// var foo = 20;
+// function foo(){
+//     console.log("Calling Foo");
+// }
+// foo();
+
+
+// async function foo(){
+//     // throw new Error("Hello");
+//     return "Hello World";
+// }
+
+// (async function(){
+//     const result = await foo();
+//     console.log(result);
+// })();
+
+function abc(){
+    console.log("Hii");
+    return ()=>{
+        console.log("Arrow Function");
+    }
 }
-foo();
+
+const result = new abc();
+console.log(result);
+
