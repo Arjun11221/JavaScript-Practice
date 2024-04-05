@@ -1,83 +1,60 @@
-// const radius = [2, 3, 4, 5];
+// const radius = [2,4,1,3];
 
-// const area = (radius) => {
-//   return Math.PI * radius * radius;
-// };
-// const cir = (radius) => {
-//   return 2 * Math.PI * radius;
-// };
-// const dia = (radius) => {
-//   return 2 * radius;
-// };
-
-// Array.prototype.calculate = function(logic) {
-//   const output = [];
-//   for (let i = 0; i < this.length; i++) {
-//     output.push(logic(this[i]));
-//   }
-//   return output;
-// };
-
-// console.log(radius.map(area));
-
-// console.log(radius.calculate(area));
-// // console.log(cal(radius, cir));
-// // console.log(cal(radius, dia));
-
-// map reduce and filter
-
-// const radius = [2, 3, 4, 5, 8, 1];
-
-// const binary = (x) => {
-//   return x.toString(2);
-// };
-
-// const output = radius.map(binary);
-
-// console.log(output);
-
-
-// const output = radius.filter((x)=>{
-//    return x%3!=0;
-// })
-
-// console.log(output);
-
-// function sum(){
-//     let sum = 0;
+// const calArea = (radius)=>{
+//     let area = [];
 //     for(let i = 0; i<radius.length; i++){
-//         sum += radius[i];
+//         area.push(Math.PI * radius[i]*radius[i]);
 //     }
-//     return sum;
-
+//     console.log(area);
 // }
 
-
-// const output = radius.reduce((sum,val)=>{
-//     sum += val;
-//     return sum;
-// },0);
-
-// console.log(output);
+// calArea(radius);
 
 
-const radius = [2, 3, 4, 5, 8, 1];
-
-
-// const add = (radius)=>{
-//     let sum = 0;
-//     for(var i = 0; i<radius.length; i++){
-//         sum += radius[i];
-
+// const calCircum = (radius)=>{
+//     let circum = [];
+//     for(let i = 0; i<radius.length; i++){
+//         circum.push(2 * Math.PI * radius[i]);
 //     }
-//     return sum;
+//     console.log(circum);
 // }
 
-// console.log(add(radius));
+// calCircum(radius);
 
-const add = radius.reduce((arr,curr)=>{
-    arr += curr;
-    return arr;
-},0);
+// const calDiameter = (radius)=>{
+//     let diameter = [];
+//     for(let i = 0; i<radius.length; i++){
+//         diameter.push(2 * radius[i]);
+//     }
+//     console.log(diameter);
+// }
 
-console.log(add);
+// calDiameter(radius);
+
+
+
+const radius = [2,4,1,3];
+
+const area = (radius)=>{
+    return Math.PI * radius * radius;
+}
+
+const circum = (radius)=>{
+    return 2 * Math.PI * radius;
+}
+
+const diameter = (radius)=>{
+    return 2 * radius;
+}
+
+const calculate = (radius, logic)=>{
+    let output = [];
+    for(let i = 0; i<radius.length; i++){
+        output.push(logic(radius[i]));
+    }
+    console.log(output);
+}
+
+calculate(radius, area);
+calculate(radius, circum);
+calculate(radius, diameter);
